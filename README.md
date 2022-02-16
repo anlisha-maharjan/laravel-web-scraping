@@ -1,7 +1,7 @@
 
 ## About 
 
-Web Scraping With PHP. A web scraping application built with laravel to fetch content of any website. We’ll be using spatie/crawler package which will provide us with a great features for writing crawlers without going absolutely crazy!
+Web Scraping With PHP. A Laravel REST API to fetch content of any website. We’ll be using spatie/crawler package which will provide us with a great features for writing crawlers without going absolutely crazy!
 
 ## Requirements
 1. PHP verion 5.6 or newer
