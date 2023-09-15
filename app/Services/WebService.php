@@ -9,10 +9,11 @@ use Carbon\Carbon;
 class WebService {
     /**
      * Insert the formatted website content to DB.
-     * @param type $content
-     * @return type
+     * @param  $content
+     * @return Boolean
      */
-    public function store($content) {
+    public function store($content) : bool
+    {
         try {
             //# prepare the data for insertion.
             DB::beginTransaction();

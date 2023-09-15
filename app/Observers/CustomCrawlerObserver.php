@@ -15,7 +15,7 @@ class CustomCrawlerObserver extends CrawlObserver {
 
     public function __construct() {
         $this->content = NULL;
-    }  
+    }
     /**
      * Called when the crawler will crawl the url.
      *
@@ -33,15 +33,11 @@ class CustomCrawlerObserver extends CrawlObserver {
      * @param \Psr\Http\Message\ResponseInterface $response
      * @param \Psr\Http\Message\UriInterface|null $foundOnUrl
      */
-    public function crawled(
-        UriInterface $url,
-        ResponseInterface $response,
-        ?UriInterface $foundOnUrl = null
-    )
+    public function crawled(UriInterface $url,ResponseInterface $response,?UriInterface $foundOnUrl = null):void
     {
         $doc = new DOMDocument();
         @$doc->loadHTML($response->getBody());
-        //# save HTML 
+        //# save HTML
         $content = $doc->saveHTML();
         //# convert encoding
         $content1 = mb_convert_encoding($content,'UTF-8',mb_detect_encoding($content,'UTF-8, ISO-8859-1',true));
@@ -68,11 +64,7 @@ class CustomCrawlerObserver extends CrawlObserver {
      * @param \GuzzleHttp\Exception\RequestException $requestException
      * @param \Psr\Http\Message\UriInterface|null $foundOnUrl
      */
-    public function crawlFailed(
-        UriInterface $url,
-        RequestException $requestException,
-        ?UriInterface $foundOnUrl = null
-    )
+    public function crawlFailed(UriInterface $url,RequestException $requestException,?UriInterface $foundOnUrl = null):void
     {
         Log::error('crawlFailed',['url'=>$url,'error'=>$requestException->getMessage()]);
     }
@@ -80,7 +72,7 @@ class CustomCrawlerObserver extends CrawlObserver {
     /**
      * Called when the crawl has ended.
      */
-    public function finishedCrawling()
+    public function finishedCrawling(): void
     {
         Log::info("finishedCrawling");
         //# store in DB
