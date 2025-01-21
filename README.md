@@ -1,3 +1,4 @@
+⚠️ [This project is no longer maintained](https://github.com/anlisha-maharjan/laravel-web-scraping/issues/3) ⚠️
 
 ## About 
 
